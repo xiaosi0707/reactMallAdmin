@@ -8,6 +8,8 @@
     "react-scripts": "2.1.8"
   },
   "scripts": {
+    "build-css": "node-sass src/ -o src/",
+    "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -21,5 +23,15 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "express": "^4.16.4",
+    "http-proxy-middleware": "^0.19.1",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.11.0",
+    "react-dom": "^16.8.5",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "^2.1.8",
+    "sass-loader": "^7.1.0"
+  }
 }
