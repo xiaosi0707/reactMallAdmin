@@ -13,6 +13,7 @@ const _user = new User()
 
 class NavTop extends React.Component{
     constructor(props) {
+        console.log(props)
         super(props)
         this.state = {
             username: _mm.getStorage('userInfo').username
@@ -22,7 +23,7 @@ class NavTop extends React.Component{
     onLogout () {
         _user.logout().then(res => {
             _mm.removeStorage('userInfo')
-            this.props.history.push('/login')
+            window.location.href = '/login'
         }, errMsg => {
             _mm.errorTips(errMsg)
         })
