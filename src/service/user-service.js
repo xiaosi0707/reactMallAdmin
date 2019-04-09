@@ -6,7 +6,7 @@
 
 import Util from '../utils/mm.js';
 
-const _mm    = new Util();
+const _mm = new Util();
 
 class User {
     // 用户登录
@@ -19,7 +19,6 @@ class User {
     }
     // 检查登录接口的数据是否合法
     checkLoginInfo (loginInfo) {
-        console.log(loginInfo)
         let username = loginInfo.username
         let password = loginInfo.password
         if (typeof username !== 'string' || username.length === 0) {
@@ -38,6 +37,13 @@ class User {
             status: true,
             msg: '验证通过'
         }
+    }
+    // 退出
+    logout() {
+        return _mm.request({
+            type: 'post',
+            url: '/user/logout.do'
+        })
     }
 }
 

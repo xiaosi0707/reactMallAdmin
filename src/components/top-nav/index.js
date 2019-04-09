@@ -7,7 +7,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Mutil from '../../utils/mm.js'
+import User from '../../service/user-service.js'
 const _mm = new Mutil()
+const _user = new User()
 
 class NavTop extends React.Component{
     constructor(props) {
@@ -15,6 +17,15 @@ class NavTop extends React.Component{
         this.state = {
             username: _mm.getStorage('userInfo').username
         }
+    }
+    // 退出登录
+    onLogout () {
+        _user.logout().then(res => {
+            _mm.removeStorage('userInfo')
+            this.props.history.push('/login')
+        }, errMsg => {
+            _mm.errorTips(errMsg)
+        })
     }
     render() {
         return (
@@ -36,7 +47,7 @@ class NavTop extends React.Component{
                         </a>
                         <ul className="dropdown-menu dropdown-user">
                             <li>
-                                <a>
+                                <a onClick={(e) => this.onLogout()}>
                                     <i className="fa fa-sign-out fa-fw"></i>
                                     <span>退出登录</span>
                                 </a>
