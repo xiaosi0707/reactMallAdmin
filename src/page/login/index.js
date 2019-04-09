@@ -7,18 +7,23 @@
 import React from 'react'
 import './index.scss'
 import Mutil from '../../utils/mm'
-const _mm = new Mutil
+import User from '../../service/user-service.js';
 
-class Login extends React.Component{
-    constructor(props){
+const _mm = new Mutil
+const _user = new User
+
+class Login extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            redirect: _mm.getUrlParam('redirect') || '/'
         }
     }
+
     // 当用户名发生改变
-    onInputChange (e) {
+    onInputChange(e) {
         let inputValue = e.target.value,
             inputName = e.target.name
 
@@ -26,20 +31,30 @@ class Login extends React.Component{
             [inputName]: inputValue
         })
     }
+
     // 提交表单
-    onSubmit () {
-        _mm.request({
-            type: 'post',
-            url: '/manage/user/login.do',
-            data: {
+    onSubmit() {
+        let loginInfo = {
                 username: this.state.username,
                 password: this.state.password
-            }
-        }).then(res => {
-            console.log(res)
-        })
+            },
+            checkResult = _user.checkLoginInfo(loginInfo)
+        // 验证通过
+        if (checkResult.status) {
+            _user.login(loginInfo)
+                .then(res => {
+                    console.log(res)
+                    this.props.history.push(this.state.redirect)
+                }, errMsg => {
+                    _mm.errorTips(errMsg)
+                })
+        } else {
+            _mm.errorTips(checkResult.msg)
+        }
+
     }
-    render(){
+
+    render() {
         return (
             <div className="col-md-4 col-md-offset-4">
                 <div className="panel panel-default login-panel">
@@ -52,8 +67,8 @@ class Login extends React.Component{
                                     name="username"
                                     className="form-control"
                                     placeholder="请输入用户名"
-                                    onChange={ (e) => this.onInputChange(e) }
-                                    />
+                                    onChange={(e) => this.onInputChange(e)}
+                                />
                             </div>
                             <div className="form-group">
                                 <input
@@ -61,11 +76,12 @@ class Login extends React.Component{
                                     name="password"
                                     className="form-control"
                                     placeholder="请输入密码"
-                                    onChange={ e => this.onInputChange(e) }
-                                   />
+                                    onChange={e => this.onInputChange(e)}
+                                />
                             </div>
                             <button className="btn btn-lg btn-primary btn-block"
-                                onClick={this.onSubmit.bind(this)}>登录</button>
+                                    onClick={this.onSubmit.bind(this)}>登录
+                            </button>
                         </div>
                     </div>
                 </div>
