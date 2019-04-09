@@ -45,6 +45,16 @@ class User {
             url: '/user/logout.do'
         })
     }
+    // 用户列表
+    getUserList(pageNum) {
+        return _mm.request({
+            type: 'post',
+            url: '/manage/user/list.do',
+            data: {
+                pageNum
+            }
+        })
+    }
 }
 
 export default User
