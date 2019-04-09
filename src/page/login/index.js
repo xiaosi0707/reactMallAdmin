@@ -21,6 +21,9 @@ class Login extends React.Component {
             redirect: _mm.getUrlParam('redirect') || '/'
         }
     }
+    componentWillMount() {
+        document.title = '登录 - 后台管理系统'
+    }
 
     // 当用户名发生改变
     onInputChange(e) {
@@ -53,6 +56,12 @@ class Login extends React.Component {
         }
 
     }
+    // 回车提交
+    onInputKeyUp (e) {
+        if (e.keyCode === 13) {
+            this.onSubmit()
+        }
+    }
 
     render() {
         return (
@@ -68,6 +77,7 @@ class Login extends React.Component {
                                     className="form-control"
                                     placeholder="请输入用户名"
                                     onChange={(e) => this.onInputChange(e)}
+                                    onKeyUp={e => this.onInputKeyUp(e)}
                                 />
                             </div>
                             <div className="form-group">
