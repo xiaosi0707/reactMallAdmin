@@ -9,12 +9,19 @@ import Layout from './components/layout/index'
 // import './config/setup-prox'
 
 class App extends React.Component {
-    render() {
+    render(){
+        let LayoutRouter = (
+            <Layout>
+                <Switch>
+                    <Route exact path='/' component={Home}/>
+                </Switch>
+            </Layout>
+        )
         return (
             <Router>
                 <Switch>
-                    <Route path='/login' component={Login}></Route>
-                    <Route exact path='/' component={Layout} />
+                    <Route path='/login' component={Login}/>
+                    <Route path='/' render = { props => LayoutRouter }/>
                 </Switch>
             </Router>
         )
