@@ -6,22 +6,24 @@ import './index.css';
 import Home from './page/home/index.js'
 import Login from './page/login/index.js'
 import Layout from './components/layout/index'
-// import './config/setup-prox'
+import ErrorPage from './page/error/index.js';
 
 class App extends React.Component {
     render(){
-        let LayoutRouter = (
-            <Layout>
-                <Switch>
-                    <Route exact path='/' component={Home}/>
-                </Switch>
-            </Layout>
-        )
         return (
             <Router>
                 <Switch>
                     <Route path='/login' component={Login}/>
-                    <Route path='/' render = { props => LayoutRouter }/>
+                    <Route path='/' render={ props => (
+                        <Layout>
+                            <Switch>
+                                <Route exact path='/' component={Home}></Route>
+                                <Route path='/product' component={Home}></Route>
+                                <Route path='/product-category' component={Home}></Route>
+                                <Route component={ErrorPage}></Route>
+                            </Switch>
+                        </Layout>
+                    )} />
                 </Switch>
             </Router>
         )
