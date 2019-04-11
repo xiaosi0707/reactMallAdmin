@@ -15,7 +15,7 @@ class ListSearch extends React.Component{
         }
     }
     onValueChange(e) {
-        let value = e.target.value
+        let value = e.target.value.trim()
         let name = e.target.name
 
         this.setState({
@@ -24,7 +24,6 @@ class ListSearch extends React.Component{
     }
     // 按钮搜索
     onSearch() {
-        console.log(1)
         this.props.onSearch(this.state.searchType, this.state.searchKeyword)
     }
     // 回车提交

@@ -20,14 +20,24 @@ class ProductList extends React.Component{
         super(props);
         this.state = {
             list: [],
-            pageNum: 1
+            pageNum: 1,
+            listType: 'list'
         };
     }
     componentDidMount(){
         this.loadProductList()
     }
     loadProductList(){
-        _product.getProductList(this.state.pageNum).then(res => {
+        let listParam = {}
+        listParam.listType = this.state.listType
+        listParam.pageNum = this.state.pageNum
+        // 如果是搜索的话需要传入搜索类型和关键字
+        if (this.state.listType === 'search') {
+            listParam.searchType = this.state.searchType
+            listParam.searchKeyword = this.state.searchKeyword
+        }
+        // 请求API
+        _product.getProductList(listParam).then(res => {
             this.setState(res, () => {
 
             });
@@ -55,7 +65,14 @@ class ProductList extends React.Component{
     }
     // 搜索
     onSearch(searchType, searchKeyword) {
-        console.log(searchType, searchKeyword)
+        this.setState({
+            listType: searchKeyword === '' ? 'list' : 'search',
+            pageNum: 1,
+            searchType,
+            searchKeyword
+        }, () => {
+            this.loadProductList()
+        })
     }
     // 页数发生变化的时候
     onPageNumChange(pageNum){

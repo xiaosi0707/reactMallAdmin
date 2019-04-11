@@ -10,12 +10,22 @@ const _mm = new Util();
 
 class User {
     // 商品列表
-    getProductList(pageNum) {
+    getProductList(listParam) {
+        console.log(listParam)
+        let url = ''
+        let data = {}
+        if (listParam.listType === 'list') {
+            url =  '/manage/product/list.do'
+            data.pageNum = listParam.pageNum
+        } else if(listParam.listType === 'search') {
+            url =  '/manage/product/search.do'
+            data.pageNum = listParam.pageNum
+            data[listParam.searchType] = listParam.searchKeyword
+        }
         return _mm.request({
-            url: '/manage/product/list.do',
-            data: {
-                pageNum
-            }
+            type: 'post',
+            url,
+            data
         })
     }
     // 上下架
