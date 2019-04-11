@@ -7,6 +7,7 @@ import React from 'react';
 import { Link }     from 'react-router-dom';
 import RcPagination from '../../../utils/pagination'
 import TableList from '../../../utils/table-list'
+import ListSearch from './index-list-search'
 import PageTitle from '../../../components/page-title/index.js';
 import Utils from '../../../utils/mm.js'
 import Product  from '../../../service/product-service.js'
@@ -52,12 +53,16 @@ class ProductList extends React.Component{
             })
         }
     }
+    // 搜索
+    onSearch(searchType, searchKeyword) {
+        console.log(searchType, searchKeyword)
+    }
     // 页数发生变化的时候
     onPageNumChange(pageNum){
         this.setState({
             pageNum : pageNum
         }, () => {
-            this.loadUserList();
+            this.loadProductList();
         });
     }
     render(){
@@ -92,7 +97,8 @@ class ProductList extends React.Component{
 
         return (
             <div id="page-wrapper">
-                <PageTitle title="用户列表"/>
+                <PageTitle title="商品列表"/>
+                <ListSearch onSearch={(searchType, searchKeyword) => {this.onSearch(searchType, searchKeyword)}} />
                 <TableList tableHeads={tableHeads}>
                     {
                         tableBody

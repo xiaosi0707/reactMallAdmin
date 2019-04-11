@@ -30,6 +30,7 @@ class Home extends React.Component {
         })
     }
 
+
     render() {
         return (
             <div id="page-wrapper">
@@ -62,6 +63,7 @@ class Home extends React.Component {
                             </p>
                         </Link>
                     </div>
+
                 </div>
             </div>
         )
