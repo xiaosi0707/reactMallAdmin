@@ -6,6 +6,7 @@
 import React from 'react'
 import PageTitle from '../../../components/page-title/index.js';
 import CategorySelector from './category-selector';
+import FileUploader from '../../../utils/file-upload';
 
 class ProductSave extends React.Component{
     constructor(props) {
@@ -85,6 +86,7 @@ class ProductSave extends React.Component{
                                     <label className="control-label">商品图片</label>
                                 </div>
                                 <div className="col-md-10">
+                                    <FileUploader />
                                     {/*{*/}
                                         {/*this.state.subImages.length ? this.state.subImages.map(*/}
                                             {/*(image, index) => (*/}
