@@ -7,8 +7,11 @@ import React from 'react'
 import PageTitle from '../../../components/page-title/index.js';
 import CategorySelector from './category-selector';
 import FileUploader from '../../../utils/file-upload';
+import RichEditor from '../../../utils/rich-editor'
 import Mutil from '../../../utils/mm.js'
 import './save.scss'
+// import Axios from 'axios'
+// import Qs from 'qs'
 const _mm = new Mutil()
 
 class ProductSave extends React.Component{
@@ -46,6 +49,27 @@ class ProductSave extends React.Component{
             subImages : subImages
         });
     }
+    // sub() {
+    //     let obj = {
+    //         token: 'f53a16f3-4eff-44b2-9594-5f11c15819b3',
+    //         orderId:"785798",
+    //         reputations:[
+    //             {
+    //                 id:"99764",
+    //                 reputation:"2",
+    //                 remark:"不错好"
+    //             }
+    //         ]
+    //     }
+    //     let data = {
+    //         postJsonString: JSON.stringify(obj)
+    //     }
+    //     Axios({
+    //         method: 'post',
+    //         url: 'https://api.it120.cc/small4/order/reputation',
+    //         data: Qs.stringify(data)
+    //     })
+    // }
     render() {
         return (
             <div id="page-wrapper">
@@ -133,10 +157,7 @@ class ProductSave extends React.Component{
                                     <label className="control-label">商品详情</label>
                                 </div>
                                 <div className="col-md-10">
-                                    {/*<RichEditor*/}
-                                        {/*detail={this.state.detail}*/}
-                                        {/*defaultDetail={this.state.defaultDetail}*/}
-                                        {/*onValueChange={(value) => this.onDetailValueChange(value)}/>*/}
+                                    <RichEditor />
                                 </div>
                             </div>
                             <div className="form-group">
