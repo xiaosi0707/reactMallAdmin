@@ -7,19 +7,44 @@ import React from 'react'
 import PageTitle from '../../../components/page-title/index.js';
 import CategorySelector from './category-selector';
 import FileUploader from '../../../utils/file-upload';
+import Mutil from '../../../utils/mm.js'
+import './save.scss'
+const _mm = new Mutil()
 
 class ProductSave extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
             categoryId: 0,
-            parentCategoryId: 0
+            parentCategoryId: 0,
+            subImages: []
         }
     }
     // 接收子组件传递过来的数据
     onCategoryChange(categoryId, parentCategoryId) {
         console.log(categoryId, parentCategoryId)
 
+    }
+    // 上传图片成功
+    onUploadSuccess(res) {
+        let subImages = this.state.subImages;
+        subImages.push(res);
+        this.setState({
+            subImages
+        })
+    }
+    // 上传图片失败
+    onUploadError(error) {
+        _mm.errorTips(error.message || `上传图片失败`)
+    }
+    // 删除图片
+    onImageDelete(e) {
+        let index       = parseInt(e.target.getAttribute('index')),
+            subImages   = this.state.subImages;
+        subImages.splice(index, 1);
+        this.setState({
+            subImages : subImages
+        });
     }
     render() {
         return (
@@ -86,21 +111,21 @@ class ProductSave extends React.Component{
                                     <label className="control-label">商品图片</label>
                                 </div>
                                 <div className="col-md-10">
-                                    <FileUploader />
-                                    {/*{*/}
-                                        {/*this.state.subImages.length ? this.state.subImages.map(*/}
-                                            {/*(image, index) => (*/}
-                                                {/*<div className="img-con" key={index}>*/}
-                                                    {/*<img className="img" src={image.url} />*/}
-                                                    {/*<i className="fa fa-close" index={index}*/}
-                                                       {/*onClick={(e) => this.onImageDelete(e)}></i>*/}
-                                                {/*</div>)*/}
-                                        {/*) : (<div >请上传图片</div>)*/}
-                                    {/*}*/}
+                                    {
+                                        this.state.subImages.length ? this.state.subImages.map(
+                                            (image, index) => (
+                                                <div className="img-con" key={index}>
+                                                    <img className="img" src={image.url} />
+                                                    <i className="fa fa-close" index={index}
+                                                       onClick={(e) => this.onImageDelete(e)}></i>
+                                                </div>)
+                                        ) : (<div >请上传图片</div>)
+                                    }
                                 </div>
                                 <div className="col-md-offset-2 col-md-10 file-upload-con">
-                                    {/*<FileUploader onSuccess={(res) => this.onUploadSuccess(res)}*/}
-                                                  {/*onError={(errMsg) => this.onUploadError(errMsg)}/>*/}
+                                    <FileUploader onSuccess={res => this.onUploadSuccess(res)}
+                                                  onError={error => this.onUploadError(error)}
+                                    />
                                 </div>
                             </div>
                             <div className="form-group">
