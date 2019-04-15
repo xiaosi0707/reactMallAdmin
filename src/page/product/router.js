@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-ro
 import ProductList from './index/index.js'
 import ProductSave from './index/save.js'
 import ProductDetail from './index/detail.js'
+import CategoryList from './category/index.js'
 
 class ProductRouter extends React.Component {
     render(){
@@ -19,6 +20,7 @@ class ProductRouter extends React.Component {
                     <Route exact path='/product/save/:pid?' component={ ProductSave }/>
                     <Route path="/product/detail/:pid?" component={ProductDetail} />
                     <Route exact path='/product/save' component={ ProductSave }/>
+                    <Route exact path='/product-category/:categoryId?' component={ CategoryList }/>
                 </Switch>
         )
     }
