@@ -101,6 +101,15 @@ class User {
             data    : product
         });
     }
+    //获取商品详情
+    getdetail(productId){
+        return _mm.request({
+            url     : '/manage/product/detail.do',
+            data    : {
+                productId : productId
+            }
+        });
+    }
 }
 
 export default User
