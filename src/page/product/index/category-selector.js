@@ -68,6 +68,9 @@ class CategorySeletor extends React.Component{
     }
     // 选择一级分类
     onFirstCategoryChange(e) {
+        if(this.props.readOnly){
+            return;
+        }
         let newVal = e.target.value
         this.setState({
             firstCategoryId: newVal,
@@ -81,6 +84,9 @@ class CategorySeletor extends React.Component{
     }
     // 选择二级分类
     onSecondCategoryChange(e) {
+        if(this.props.readOnly){
+            return;
+        }
         let newVal = e.target.value
         this.setState({
             secondCategoryId: newVal
@@ -109,6 +115,7 @@ class CategorySeletor extends React.Component{
                         value={this.state.firstCategoryId}
                         className="form-control cate-selet"
                             onChange={ e => this.onFirstCategoryChange(e)}
+                        readOnly={this.props.readOnly}
                     >
                         <option value=''>请选择一级品类</option>
                         {
@@ -122,6 +129,7 @@ class CategorySeletor extends React.Component{
                             <select className="form-control cate-selet"
                                     value={this.state.secondCategoryId}
                                 onChange={ e => this.onSecondCategoryChange(e)}
+                                    readOnly={this.props.readOnly}
                             >
                                 <option value=''>请输入二级品类</option>
                                 {
