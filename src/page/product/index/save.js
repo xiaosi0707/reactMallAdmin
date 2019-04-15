@@ -10,9 +10,12 @@ import FileUploader from '../../../utils/file-upload';
 import RichEditor from '../../../utils/rich-editor'
 import Mutil from '../../../utils/mm.js'
 import './save.scss'
+import Product from '../../../service/product-service.js'
+const _mm = new Mutil()
+const _product = new Product()
+
 // import Axios from 'axios'
 // import Qs from 'qs'
-const _mm = new Mutil()
 
 class ProductSave extends React.Component{
     constructor(props) {
@@ -20,12 +23,21 @@ class ProductSave extends React.Component{
         this.state = {
             categoryId: 0,
             parentCategoryId: 0,
-            subImages: []
+            subImages: [],
+            name: '',
+            price: '',
+            stock: '',
+            detail: '',
+            status: 1 // 商品状态 1 待售
         }
     }
     // 接收子组件传递过来的数据
     onCategoryChange(categoryId, parentCategoryId) {
         console.log(categoryId, parentCategoryId)
+        this.setState({
+            categoryId: categoryId,
+            parentCategoryId: parentCategoryId
+        })
 
     }
     // 上传图片成功
@@ -48,6 +60,55 @@ class ProductSave extends React.Component{
         this.setState({
             subImages : subImages
         });
+    }
+    // 富文本编辑器的变化
+    onDetailValueChange(value){
+        this.setState({
+            detail: value
+        });
+    }
+    // 基础字段
+    onValueChange(e) {
+        let name = e.target.name
+        let value = e.target.value.trim()
+        this.setState({
+            [name]: value
+        })
+    }
+    getSubImagesString(){
+        return this.state.subImages.map((image) => image.uri).join(',');
+    }
+    // 提交表单
+    onSubmit(e) {
+        let product = {
+                name        : this.state.name,
+                subtitle    : this.state.subtitle,
+                categoryId  : parseInt(this.state.categoryId),
+                subImages   : this.getSubImagesString(),
+                detail      : this.state.detail,
+                price       : parseFloat(this.state.price),
+                stock       : parseInt(this.state.stock),
+                status      : this.state.status
+            }
+
+            console.log(product)
+        let productCheckResult = _product.checkProduct(product);
+        if(this.state.id){
+            product.id = this.state.id;
+        }
+        // 表单验证成功
+        if(productCheckResult.status){
+            _product.saveProduct(product).then((res) => {
+                _mm.successTips(res);
+                this.props.history.push('/product/index');
+            }, (errMsg) => {
+                _mm.errorTips(errMsg);
+            });
+        }
+        // 表单验证失败
+        else{
+            _mm.errorTips(productCheckResult.msg);
+        }
     }
     // sub() {
     //     let obj = {
@@ -84,6 +145,8 @@ class ProductSave extends React.Component{
                                 <div className="col-md-5">
                                     <input type="text" name="name" className="form-control"
                                            placeholder="请输入商品名称"
+                                           name='name'
+                                           onChange={ e => this.onValueChange(e)}
 
                                            />
                                 </div>
@@ -96,6 +159,7 @@ class ProductSave extends React.Component{
                                     <input type="text" name="subtitle"
                                            className="form-control"
                                            placeholder="请输入商品描述"
+                                           onChange={e =>this.onValueChange(e)}
                                           />
                                 </div>
                             </div>
@@ -108,9 +172,11 @@ class ProductSave extends React.Component{
                                 </div>
                                 <div className="col-md-3">
                                     <div className="input-group">
-                                        <input type="number" name="price"
+                                        <input type="number"
+                                               name="price"
                                                className="form-control"
                                                placeholder="价格"
+                                               onChange={e =>this.onValueChange(e)}
                                               />
                                         <span className="input-group-addon">元</span>
                                     </div>
@@ -125,6 +191,7 @@ class ProductSave extends React.Component{
                                         <input type="number" name="stock"
                                                className="form-control"
                                                placeholder="库存"
+                                               onChange={e =>this.onValueChange(e)}
                                                />
                                         <span className="input-group-addon">件</span>
                                     </div>
@@ -157,12 +224,15 @@ class ProductSave extends React.Component{
                                     <label className="control-label">商品详情</label>
                                 </div>
                                 <div className="col-md-10">
-                                    <RichEditor />
+                                    <RichEditor detail={this.state.detail}
+                                                defaultDetail={this.state.defaultDetail}
+                                                onValueChange={(value) => this.onDetailValueChange(value)} />
                                 </div>
                             </div>
                             <div className="form-group">
                                 <div className="col-md-10 col-md-offset-2">
                                     <div className="btn btn-primary"
+                                         onClick={e => this.onSubmit(e)}
                                          >提交</div>
                                 </div>
                             </div>
