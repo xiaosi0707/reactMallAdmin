@@ -9,7 +9,7 @@ import Layout from './components/layout/index'
 import ErrorPage from './page/error/index.js';
 import UserList from './page/user/index.js';
 import Order from './page/order/index.js';
-import OrderDetail from './page/order/index.js';
+import OrderDetail from './page/order/detail.js';
 
 import ProductRouter from './page/product/router'
 
