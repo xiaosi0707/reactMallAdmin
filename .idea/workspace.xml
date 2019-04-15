@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66dd57f4-b078-4a58-a8cd-b9a3683aa2c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/page/product/category/add.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/side-nav/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/side-nav/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/product/category/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/product/category/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/product/index/category-selector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/product/index/category-selector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/product/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/product/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/product-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/product-service.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/page/product/category/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
+            <state relative-caret-position="311">
+              <caret line="79" column="27" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
               <folding>
                 <element signature="e#69#94#0" expanded="true" />
               </folding>
@@ -121,10 +115,10 @@
       <find>loadProduct</find>
       <find>bindEditorEvent</find>
       <find>品类</find>
-      <find>onUpdateName</find>
       <find>/product-category/add</find>
       <find>getCategoryList</find>
       <find>CategoryAdd</find>
+      <find>onUpdateName</find>
     </findStrings>
     <replaceStrings>
       <replace>分类</replace>
@@ -172,10 +166,10 @@
         <option value="$PROJECT_DIR$/src/utils/rich-editor.js" />
         <option value="$PROJECT_DIR$/src/page/product/index/detail.js" />
         <option value="$PROJECT_DIR$/src/page/product/index/category-selector.js" />
-        <option value="$PROJECT_DIR$/src/page/product/category/index.js" />
         <option value="$PROJECT_DIR$/src/page/product/router.js" />
         <option value="$PROJECT_DIR$/src/page/product/category/add.js" />
         <option value="$PROJECT_DIR$/src/service/product-service.js" />
+        <option value="$PROJECT_DIR$/src/page/product/category/index.js" />
       </list>
     </option>
   </component>
@@ -196,46 +190,6 @@
             <path>
               <item name="mall-admin" type="b2602c69:ProjectViewProjectNode" />
               <item name="mall-admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-              <item name="category" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -301,12 +255,12 @@
       <workItem from="1555058856544" duration="2098000" />
       <workItem from="1555066233767" duration="2201000" />
       <workItem from="1555290450783" duration="8288000" />
-      <workItem from="1555309336563" duration="6181000" />
+      <workItem from="1555309336563" duration="8801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118529000" />
+    <option name="totallyTimeSpent" value="121149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="913" extended-state="6" />
@@ -667,8 +621,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/page/product/category/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
+        <state relative-caret-position="311">
+          <caret line="79" column="27" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
           <folding>
             <element signature="e#69#94#0" expanded="true" />
           </folding>

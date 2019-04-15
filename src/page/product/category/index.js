@@ -73,7 +73,11 @@ class CategoryList extends React.Component{
                     <td>{category.name}</td>
                     <td>
                         <a className="opear"
-                           onClick={(e) => this.onUpdateName(category.id, category.name)}>修改名称 </a>
+                           onClic
+
+
+
+                           k={(e) => this.onUpdateName(category.id, category.name)}>修改名称 </a>
                         {
                             category.parentId === 0
                                 ? <Link to={`/product-category/${category.id}`}> 查看子分类</Link>
@@ -89,7 +93,7 @@ class CategoryList extends React.Component{
                     <div className="page-header-right">
                         <Link to="/product-category/add" className="btn btn-primary">
                             <i className="fa fa-plus"></i>
-                            <span>添加分类1</span>
+                            <span>添加分类</span>
                         </Link>
                     </div>
                 </PageTitle>
