@@ -29,14 +29,14 @@ class CategorySeletor extends React.Component{
         if(!categoryIdChange && !parentCategoryIdChange){
             return;
         }
-        // 假如只有一级品类
+        // 假如只有一级分类
         if(nextProps.parentCategoryId === 0){
             this.setState({
                 firstCategoryId     : nextProps.categoryId,
                 secondCategoryId    : 0
             });
         }
-        // 有两级品类
+        // 有两级分类
         else{
             this.setState({
                 firstCategoryId     : nextProps.parentCategoryId,
@@ -117,7 +117,7 @@ class CategorySeletor extends React.Component{
                             onChange={ e => this.onFirstCategoryChange(e)}
                         readOnly={this.props.readOnly}
                     >
-                        <option value=''>请选择一级品类</option>
+                        <option value=''>请选择一级分类</option>
                         {
                             this.state.firstCategoryList.map((category, index) => <option value={category.id}>{ category.name }</option>)
                         }
@@ -131,7 +131,7 @@ class CategorySeletor extends React.Component{
                                 onChange={ e => this.onSecondCategoryChange(e)}
                                     readOnly={this.props.readOnly}
                             >
-                                <option value=''>请输入二级品类</option>
+                                <option value=''>请输入二级分类</option>
                                 {
                                     this.state.secondCategoryList.map((category, index) => <option value={category.id}>{ category.name }</option>)
                                 }

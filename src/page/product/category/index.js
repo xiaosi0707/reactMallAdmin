@@ -25,9 +25,9 @@ class CategoryList extends React.Component{
     componentDidMount(){
         this.loadCategoryList();
     }
-    // 更新品类的名字
+    // 更新分类的名字
     onUpdateName(categoryId, categoryName){
-        let newName = window.prompt('请输入新的品类名称', categoryName);
+        let newName = window.prompt('请输入新的分类名称', categoryName);
         if(newName){
             _product.updateCategoryName({
                 categoryId: categoryId,
@@ -52,7 +52,7 @@ class CategoryList extends React.Component{
             });
         }
     }
-    // 加载品类列表
+    // 加载分类列表
     loadCategoryList(){
         _product.getCategoryList(this.state.parentCategoryId).then(res => {
             this.setState({
@@ -76,7 +76,7 @@ class CategoryList extends React.Component{
                            onClick={(e) => this.onUpdateName(category.id, category.name)}>修改名称 </a>
                         {
                             category.parentId === 0
-                                ? <Link to={`/product-category/${category.id}`}> 查看子品类</Link>
+                                ? <Link to={`/product-category/${category.id}`}> 查看子分类</Link>
                                 : null
                         }
                     </td>
@@ -85,20 +85,20 @@ class CategoryList extends React.Component{
         });
         return (
             <div id="page-wrapper">
-                <PageTitle title="品类列表">
+                <PageTitle title="分类列表">
                     <div className="page-header-right">
                         <Link to="/product-category/add" className="btn btn-primary">
                             <i className="fa fa-plus"></i>
-                            <span>添加品类</span>
+                            <span>添加分类1</span>
                         </Link>
                     </div>
                 </PageTitle>
                 <div className="row">
                     <div className="col-md-12">
-                        <p>父品类ID: {this.state.parentCategoryId}</p>
+                        <p>父分类ID: {this.state.parentCategoryId}</p>
                     </div>
                 </div>
-                <TableList tableHeads={['品类ID', '品类名称', '操作']}>
+                <TableList tableHeads={['分类ID', '分类名称', '操作']}>
                     {listBody}
                 </TableList>
             </div>

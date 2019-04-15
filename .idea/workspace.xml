@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66dd57f4-b078-4a58-a8cd-b9a3683aa2c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/page/product/category/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/product/category/add.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/side-nav/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/side-nav/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/product/category/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/product/category/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/product/index/category-selector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/product/index/category-selector.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/product/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/product/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/product-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/product-service.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,11 +24,32 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/page/product/category/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="78" column="62" selection-start-line="78" selection-start-column="62" selection-end-line="78" selection-end-column="62" />
+            <state relative-caret-position="648">
+              <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
               <folding>
                 <element signature="e#69#94#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/page/product/category/add.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+              <folding>
+                <element signature="e#67#92#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/service/product-service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="124" column="60" selection-start-line="124" selection-start-column="23" selection-end-line="124" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -44,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/page/product/router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+            <state relative-caret-position="246">
+              <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
               <folding>
                 <element signature="e#69#95#0" expanded="true" />
               </folding>
@@ -95,8 +120,15 @@
       <find>onDetailValueChange</find>
       <find>loadProduct</find>
       <find>bindEditorEvent</find>
+      <find>品类</find>
       <find>onUpdateName</find>
+      <find>/product-category/add</find>
+      <find>getCategoryList</find>
+      <find>CategoryAdd</find>
     </findStrings>
+    <replaceStrings>
+      <replace>分类</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -136,13 +168,14 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/setup-proxy.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/service/product-service.js" />
         <option value="$PROJECT_DIR$/src/page/product/index/save.js" />
         <option value="$PROJECT_DIR$/src/utils/rich-editor.js" />
         <option value="$PROJECT_DIR$/src/page/product/index/detail.js" />
         <option value="$PROJECT_DIR$/src/page/product/index/category-selector.js" />
-        <option value="$PROJECT_DIR$/src/page/product/router.js" />
         <option value="$PROJECT_DIR$/src/page/product/category/index.js" />
+        <option value="$PROJECT_DIR$/src/page/product/router.js" />
+        <option value="$PROJECT_DIR$/src/page/product/category/add.js" />
+        <option value="$PROJECT_DIR$/src/service/product-service.js" />
       </list>
     </option>
   </component>
@@ -197,6 +230,12 @@
               <item name="page" type="462c0819:PsiDirectoryNode" />
               <item name="product" type="462c0819:PsiDirectoryNode" />
               <item name="index" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mall-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mall-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -262,12 +301,12 @@
       <workItem from="1555058856544" duration="2098000" />
       <workItem from="1555066233767" duration="2201000" />
       <workItem from="1555290450783" duration="8288000" />
-      <workItem from="1555309336563" duration="2076000" />
+      <workItem from="1555309336563" duration="6181000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114424000" />
+    <option name="totallyTimeSpent" value="118529000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="913" extended-state="6" />
@@ -582,13 +621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/product-service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -608,18 +640,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/page/product/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+        <state relative-caret-position="246">
+          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding>
             <element signature="e#69#95#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/product/category/index.js">
+    <entry file="file://$PROJECT_DIR$/src/service/product-service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
-          <caret line="78" column="62" selection-start-line="78" selection-start-column="62" selection-end-line="78" selection-end-column="62" />
+          <caret line="124" column="60" selection-start-line="124" selection-start-column="23" selection-end-line="124" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/product/category/add.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <folding>
+            <element signature="e#67#92#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/product/category/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
           <folding>
             <element signature="e#69#94#0" expanded="true" />
           </folding>

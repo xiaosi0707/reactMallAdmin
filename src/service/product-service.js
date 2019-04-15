@@ -39,7 +39,7 @@ class User {
             }
         })
     }
-    // 根据父品类id获取品类列表
+    // 根据父分类id获取分类列表
     getCategoryList(parentCategoryId) {
         return _mm.request({
             type: 'post',
@@ -69,11 +69,11 @@ class User {
                 msg: '商品描述不能为空！'
             }
         }
-        // 验证品类ID
+        // 验证分类ID
         if(typeof product.categoryId !== 'number' || !(product.categoryId > 0)){
             return {
                 status: false,
-                msg: '请选择商品品类！'
+                msg: '请选择商品分类！'
             }
         }
         // 判断商品价格为数字，且大于0
@@ -108,6 +108,22 @@ class User {
             data    : {
                 productId : productId
             }
+        });
+    }
+    // 新增分类
+    saveCategory(category){
+        return _mm.request({
+            type    : 'post',
+            url     : '/manage/category/add_category.do',
+            data    : category
+        });
+    }
+    // 修改分类名称
+    updateCategoryName(category){
+        return _mm.request({
+            type    : 'post',
+            url     : '/manage/category/set_category_name.do',
+            data    : category
         });
     }
 }
